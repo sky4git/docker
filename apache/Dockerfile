@@ -1,4 +1,4 @@
-FROM httpd:2.4
+FROM httpd
 WORKDIR /var/www/html  
 #COPY index.html . 
 CMD echo "Hello world!" > index.html
