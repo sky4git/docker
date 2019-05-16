@@ -1,14 +1,14 @@
 FROM httpd
-COPY ./public-html/ /usr/local/apache2/htdocs/
-WORKDIR ./public-html/ 
+
+WORKDIR /var/www/html  
 #COPY index.html . 
 CMD echo "Hello world!" > index.html
-#CMD chkconfig httpd on
-#CMD service httpd start
-HEALTHCHECK --interval=5s --timeout=3s \
-  CMD curl -f http://localhost/ || exit 1
+#CMD sudo chkconfig httpd on
+#CMD sudo service httpd start
+#HEALTHCHECK --interval=5s --timeout=3s \
+#  CMD curl -f http://localhost/ || exit 1
 
-VOLUME ./public-html/
+VOLUME /var/www/html
 
 EXPOSE 80
 
