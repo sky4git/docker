@@ -4,6 +4,10 @@ build:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image.
+      - $(aws ecr get-login --no-include-email --region ap-southeast-2)
+      - docker build -t docker-apache-test .
+      - docker tag docker-apache-test:latest 682992900157.dkr.ecr.ap-southeast-2.amazonaws.com/docker-apache-test:latest
+      - echo Docker image build finished.
 post_build:
     commands:
       - echo Build completed on `date`
