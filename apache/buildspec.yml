@@ -4,6 +4,9 @@ artifacts:
   base-directory: 'apache'
 
 phases:
+  install:
+    runtime-versions:
+      ubuntu:18.04
   build:
     commands:
       - echo Build started on `date`
