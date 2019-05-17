@@ -7,17 +7,20 @@ phases:
   install:
     runtime-versions:
       docker: 18
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - $(aws ecr get-login --no-include-email --region $AWS_REGION)
   build:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image.
-      - $(aws ecr get-login --no-include-email --region ap-southeast-2)
       - docker build -t docker-apache-test .
-      - docker tag docker-apache-test:latest 682992900157.dkr.ecr.ap-southeast-2.amazonaws.com/docker-apache-test:latest
+      - docker tag docker-apache-test:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/docker-apache-test:latest
       - echo Docker image build finished.
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$CODEBUILD_RESOLVED_SOURCE_VERSION
+      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/docker-apache-test:latest
 
