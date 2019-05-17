@@ -1,5 +1,9 @@
 version: 1.0
 
+
+artifacts:
+  base-directory: 'apache'
+  
 build:
     commands:
       - echo Build started on `date`
