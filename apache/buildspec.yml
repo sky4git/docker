@@ -6,7 +6,7 @@ artifacts:
 phases:
   install:
     runtime-versions:
-      docker: 18.09.6
+      docker: 18
   build:
     commands:
       - echo Build started on `date`
