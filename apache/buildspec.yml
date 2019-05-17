@@ -1,5 +1,10 @@
 version: 0.2
 
+env:
+  variables:
+    IMAGE_REPO_NAME: "docker-apache-test"
+    IMAGE_TAG: "latest"
+
 artifacts:
   base-directory: 'apache'
 
@@ -16,11 +21,11 @@ phases:
       - echo Build started on `date`
       - echo Building the Docker image.
       - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
-      - docker tag docker-apache-test:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/docker-apache-test:latest
+      - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
       - echo Docker image build finished.
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/docker-apache-test:latest
+      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
 
