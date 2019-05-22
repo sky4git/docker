@@ -2,7 +2,7 @@ FROM httpd:2.4
 
 #WORKDIR /usr/local/apache2/htdocs  
 #COPY index.html . 
-CMD echo "Hello world!" > /usr/local/apache2/htdocs/hello.html
+RUN echo "Hello world!" > /usr/local/apache2/htdocs/hello.html
 #CMD sudo chkconfig httpd on
 #CMD sudo service httpd start
 #HEALTHCHECK --interval=5s --timeout=3s \
@@ -10,6 +10,6 @@ CMD echo "Hello world!" > /usr/local/apache2/htdocs/hello.html
 
 #VOLUME /usr/local/apache2/htdocs/
 
-#EXPOSE 80
+EXPOSE 80
 
 
