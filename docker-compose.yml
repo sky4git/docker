@@ -2,6 +2,7 @@ version: "3.7"
 services:
   webapp:
     build: ./apache
+    container_name: "website"
     replicas: 1
     depends_on:
       - mysql
@@ -9,10 +10,13 @@ services:
     ports:
       - 80:80
   mysql:
+    container_name: "database"
     image: mysql
     environment: 
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_USER=root
+      - MYSQL_USER=docker
       - MYSQL_DATABASE=mydb
+      - MYSQL_PASSWORD=test
   php:
+    container_name: "php-container"
     build: ./php  
