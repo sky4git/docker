@@ -8,7 +8,8 @@ services:
       - mysql
       - php
     ports:
-      - 80:80
+      - "80:80"
+      - "443": "443"
   mysql:
     container_name: "database"
     image: mysql
@@ -18,5 +19,5 @@ services:
       - MYSQL_DATABASE=mydb
       - MYSQL_PASSWORD=test
   php:
-    container_name: "php-container"
+    container_name: "php"
     build: ./php  

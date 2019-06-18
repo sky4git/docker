@@ -9,6 +9,8 @@ RUN echo '<?php $con = mysqli_connect("localhost","root","mydb","my_db"); if (my
 HEALTHCHECK --interval=5s --timeout=3s \
   CMD curl -f http://localhost/hello.html || exit 1
 
+ENTRYPOINT [ "httpd", "-D", "FOREGROUND" ]  
+
 
 
 
