@@ -1,15 +1,13 @@
-version: "3.7"
+version: "3.0"
 services:
   webapp:
     build: ./apache
     container_name: "website"
-    replicas: 1
     depends_on:
       - mysql
       - php
     ports:
       - "80:80"
-      - "443": "443"
   mysql:
     container_name: "database"
     image: mysql
@@ -18,6 +16,8 @@ services:
       - MYSQL_USER=docker
       - MYSQL_DATABASE=mydb
       - MYSQL_PASSWORD=test
+    ports:
+      - "3306:3306"
   php:
     container_name: "php"
     build: ./php  
