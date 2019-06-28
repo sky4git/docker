@@ -21,11 +21,11 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the APACHE Docker image.
-      - docker build git@github.com:sky4git/docker.git#master:apache
+      - docker build https://github.com/sky4git/docker.git#master:apache
       - docker tag $APACHE_IMAGE_REPO_NAME:latest $APACHE_REPO_URI:$IMAGE_TAG
       - echo APACHE Docker image build finished.
       - echo Building the PHP Docker image.
-      - docker build git@github.com:sky4git/docker.git#master:php
+      - docker build https://github.com/sky4git/docker.git#master:php
       - docker tag $PHP_IMAGE_REPO_NAME:latest $PHP_REPO_URI:$IMAGE_TAG  
       - echo PHP Docker image build finished.
   post_build:
