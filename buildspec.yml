@@ -22,11 +22,16 @@ phases:
       - echo Build started on `date`
       - echo Codebuild src directory $CODEBUILD_SRC_DIR
       - ls -la
+      - echo single line test
+      - cd apache && ls -la
+      - echo multiline test
+      - cd apache
+      - ls -la
       - echo start building the APACHE Docker image.
-      - cd apache && docker build . && docker tag $APACHE_IMAGE_REPO_NAME:latest $APACHE_REPO_URI:$IMAGE_TAG
+      - cd $CODEBUILD_SRC_DIR/apache && docker build . && docker tag $APACHE_IMAGE_REPO_NAME:latest $APACHE_REPO_URI:$IMAGE_TAG
       - echo APACHE Docker image build finished.
       - echo start building the PHP Docker image.
-      - cd php && docker build . && docker tag $PHP_IMAGE_REPO_NAME:latest $PHP_REPO_URI:$IMAGE_TAG  
+      - cd $CODEBUILD_SRC_DIR/php && docker build . && docker tag $PHP_IMAGE_REPO_NAME:latest $PHP_REPO_URI:$IMAGE_TAG  
       - echo PHP Docker image build finished.
   post_build:
     commands:
