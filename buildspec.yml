@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    APACHE_IMAGE_REPO_NAME: "apachet"
+    APACHE_IMAGE_REPO_NAME: "apache"
     PHP_IMAGE_REPO_NAME: "php"
     AWS_DEFAULT_REGION: "ap-southeast-2"
 
