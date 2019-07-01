@@ -21,6 +21,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Codebuild src directory $CODEBUILD_SRC_DIR
+      - Listing directory structure
       - ls -la
       - echo start building the APACHE Docker image.
       - cat $CODEBUILD_SRC_DIR/apache/Dockerfile > Dockerfile
