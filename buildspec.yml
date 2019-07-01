@@ -23,11 +23,14 @@ phases:
       - echo Codebuild src directory $CODEBUILD_SRC_DIR
       - ls -la
       - echo start building the APACHE Docker image.
-      - cd apache & ls -la
-      - docker build -f Dockerfile && docker tag $APACHE_IMAGE_REPO_NAME:latest $APACHE_REPO_URI:$IMAGE_TAG
+      - cat $CODEBUILD_SRC_DIR/apache/Dockerfile > Dockerfile
+      - docker build .
+      - docker tag $APACHE_IMAGE_REPO_NAME:latest $APACHE_REPO_URI:$IMAGE_TAG
       - echo APACHE Docker image build finished.
       - echo start building the PHP Docker image.
-      - cd $CODEBUILD_SRC_DIR/php && docker build -f Dockerfile && docker tag $PHP_IMAGE_REPO_NAME:latest $PHP_REPO_URI:$IMAGE_TAG  
+      - cd $CODEBUILD_SRC_DIR/php/Dockerfile > Dockerfile 
+      - docker build . 
+      - docker tag $PHP_IMAGE_REPO_NAME:latest $PHP_REPO_URI:$IMAGE_TAG  
       - echo PHP Docker image build finished.
   post_build:
     commands:
