@@ -20,20 +20,16 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - echo testing docker-compose
-      - docker-compose up -d
       - echo Codebuild src directory $CODEBUILD_SRC_DIR
       - echo Listing directory structure
       - ls -la
       - echo start building the APACHE Docker image.
-      - cat $CODEBUILD_SRC_DIR/apache/Dockerfile > Dockerfile
-      - cat Dockerfile
+      - cd $CODEBUILD_SRC_DIR/apache
       - docker build -t $APACHE_IMAGE_REPO_NAME:$IMAGE_TAG .
       - docker tag $APACHE_IMAGE_REPO_NAME:latest $APACHE_REPO_URI:$IMAGE_TAG
       - echo APACHE Docker image build finished.
       - echo start building the PHP Docker image.
-      - cat $CODEBUILD_SRC_DIR/php/Dockerfile > Dockerfile 
-      - cat Dockerfile
+      - cd $CODEBUILD_SRC_DIR/php 
       - docker build -t $PHP_IMAGE_REPO_NAME:$IMAGE_TAG . 
       - docker tag $PHP_IMAGE_REPO_NAME:latest $PHP_REPO_URI:$IMAGE_TAG  
       - echo PHP Docker image build finished.
