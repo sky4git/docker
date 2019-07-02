@@ -20,6 +20,8 @@ phases:
   build:
     commands:
       - echo Build started on `date`
+      - echo testing docker-compose
+      - docker-compose up -d
       - echo Codebuild src directory $CODEBUILD_SRC_DIR
       - echo Listing directory structure
       - ls -la
