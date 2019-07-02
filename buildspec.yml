@@ -40,11 +40,9 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the APACHE Docker image...
       - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$APACHE_IMAGE_REPO_NAME:latest 
-      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$APACHE_IMAGE_REPO_NAME:$IMAGE_TAG
       - printf '[{"name":"apache","imageUri":"%s"}]' $APACHE_REPO_URI:$IMAGE_TAG > apachedefinitions.json
       - echo Pushing the PHP Docker image...
       - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$PHP_IMAGE_REPO_NAME:latest 
-      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$PHP_IMAGE_REPO_NAME:$IMAGE_TAG
       - printf '[{"name":"php","imageUri":"%s"}]' $PHP_REPO_URI:$IMAGE_TAG > phpdefinitions.json
 
 artifacts:
