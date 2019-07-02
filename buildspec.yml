@@ -30,7 +30,7 @@ phases:
       - docker tag $APACHE_IMAGE_REPO_NAME:latest $APACHE_REPO_URI:$IMAGE_TAG
       - echo APACHE Docker image build finished.
       - echo start building the PHP Docker image.
-      - cd $CODEBUILD_SRC_DIR/php/Dockerfile > Dockerfile 
+      - cat $CODEBUILD_SRC_DIR/php/Dockerfile > Dockerfile 
       - cat Dockerfile
       - docker build t $PHP_IMAGE_REPO_NAME:$IMAGE_TAG . 
       - docker tag $PHP_IMAGE_REPO_NAME:latest $PHP_REPO_URI:$IMAGE_TAG  
