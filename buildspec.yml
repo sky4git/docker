@@ -39,10 +39,11 @@ phases:
       - echo Pushing the APACHE Docker image...
       - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$APACHE_IMAGE_REPO_NAME:latest 
       - printf '[{"name":"apache","imageUri":"%s"}]' $APACHE_REPO_URI:$IMAGE_TAG > apachedefinitions.json
+      - cat apachedefinitions.json
       - echo Pushing the PHP Docker image...
       - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$PHP_IMAGE_REPO_NAME:latest 
       - printf '[{"name":"php","imageUri":"%s"}]' $PHP_REPO_URI:$IMAGE_TAG > phpdefinitions.json
-
+      - cat phpdefinitions.json
 artifacts:
     files: 
       - apachedefinitions.json
