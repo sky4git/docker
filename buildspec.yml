@@ -33,6 +33,8 @@ phases:
       - docker build -t $PHP_IMAGE_REPO_NAME:$IMAGE_TAG . 
       - docker tag $PHP_IMAGE_REPO_NAME:latest $PHP_REPO_URI:$IMAGE_TAG  
       - echo PHP Docker image build finished.
+      - echo start building the PHP Docker image.
+ 
   post_build:
     commands:
       - echo Build completed on `date`

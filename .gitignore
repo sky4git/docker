@@ -1,2 +1,3 @@
 # ignore local ecs-params.yml file
 ecs-params.yml
+service-skalaton.json
