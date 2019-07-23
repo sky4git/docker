@@ -4,3 +4,5 @@ RUN apk update; \
 RUN docker-php-ext-install mysqli
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
+VOLUME /var/www/html
+
