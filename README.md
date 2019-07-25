@@ -1,8 +1,10 @@
+![Build Status](https://codebuild.ap-southeast-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiNUVreWpTNHBDM2ZJaE53VEE1TFFCSyszbndtSkpqMEdIcDhScHZjZHhZTU9oR2hpMVRxakcxMnp6UENJN1c3enFoa1hLRnY2U1h0UFAvdHBqcFh5ejFzPSIsIml2UGFyYW1ldGVyU3BlYyI6IkVGcnlWVk1IV1hDK2czZUIiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
+
+
 # docker
 
 This repository is for Docker playground and demos. Self learning material.
 
-Check the build status in respective folders. 
 
 ## ecs-params.yml file
 Create a local ecs-params.yml file to configure local values for your AWS account values.
