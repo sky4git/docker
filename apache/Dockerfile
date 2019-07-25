@@ -8,11 +8,12 @@ COPY demo.apache.conf /usr/local/apache2/conf/demo.apache.conf
 RUN echo "Include /usr/local/apache2/conf/demo.apache.conf" \
     >> /usr/local/apache2/conf/httpd.conf
 
+COPY index.php /usr/local/apache2/htdocs/  
+
 WORKDIR /usr/local/apache2/htdocs  
 #COPY index.html . 
 RUN echo "Hello world!" > hello.html
 #RUN echo '<?php $con = mysqli_connect("localhost","root","mydb","my_db"); if (mysqli_connect_errno()){ echo "Failed to connect to MySQL: " . mysqli_connect_error(); } ?>' > index.php
-COPY index.php /usr/local/apache2/htdocs/index.php
 #CMD sudo chkconfig httpd on
 #CMD sudo service httpd start
 HEALTHCHECK --interval=5s --timeout=3s \
