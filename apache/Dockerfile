@@ -1,8 +1,9 @@
 FROM httpd:2.4-alpine
 
 RUN apk update; \
-    apk upgrade; 
-
+    apk upgrade; \
+    apk add git;
+RUN git clone https://github.com/WordPress/WordPress.git
 # Copy apache vhost file to proxy php requests to php-fpm container
 COPY demo.apache.conf /usr/local/apache2/conf/demo.apache.conf
 RUN echo "Include /usr/local/apache2/conf/demo.apache.conf" \
