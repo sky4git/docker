@@ -13,9 +13,9 @@ COPY index.php /usr/local/apache2/htdocs/
 WORKDIR /usr/local/apache2/htdocs  
 #COPY index.html . 
 RUN echo "Hello world!" > hello.html
-RUN git clone https://github.com/WordPress/WordPress.git \ 
-    mv WordPress/* . \
-    rm -rf WordPress
+RUN git clone https://github.com/WordPress/WordPress.git; \ 
+    mv WordPress/* .; \
+    rm -rf WordPress;
 
 #RUN echo '<?php $con = mysqli_connect("localhost","root","mydb","my_db"); if (mysqli_connect_errno()){ echo "Failed to connect to MySQL: " . mysqli_connect_error(); } ?>' > index.php
 #CMD sudo chkconfig httpd on
