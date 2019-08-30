@@ -20,9 +20,9 @@ RUN git clone https://github.com/sky4git/WordPress.git; \
     rm -rf WordPress;
 
 # Download S3 and CloudFront plugin
-RUN curl -o amazon-s3-and-cloudfront.zip https://downloads.wordpress.org/plugin/amazon-s3-and-cloudfront.${PLUGIN_S3_CLOUDFRONT_VERSION}.zip \
-  && unzip amazon-s3-and-cloudfront.zip -d /usr/local/apache2/htdocs/wp-content/plugins \
-	&& rm amazon-s3-and-cloudfront.zip
+# RUN curl -o amazon-s3-and-cloudfront.zip https://downloads.wordpress.org/plugin/amazon-s3-and-cloudfront.${PLUGIN_S3_CLOUDFRONT_VERSION}.zip \
+#   && unzip amazon-s3-and-cloudfront.zip -d /usr/local/apache2/htdocs/wp-content/plugins \
+# 	&& rm amazon-s3-and-cloudfront.zip
 
 #RUN echo '<?php $con = mysqli_connect("localhost","root","mydb","my_db"); if (mysqli_connect_errno()){ echo "Failed to connect to MySQL: " . mysqli_connect_error(); } ?>' > index.php
 #CMD sudo chkconfig httpd on
