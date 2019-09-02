@@ -25,6 +25,11 @@ phases:
       - ls -la
       - echo start building the APACHE Docker image.
       - cd $CODEBUILD_SRC_DIR/apache
+      - echo Replace PLACEHOLDER in wp-config.php
+      - sed -i -e  "s|DB_NAME_PLACEHOLDER|$DB_NAME|" wp-config.php
+      - sed -i -e  "s|DB_USER_PLACEHOLDER|$DB_USER|" wp-config.php
+      - sed -i -e  "s|DB_PASSWORD_PLACEHOLDER|$DB_PASSWORD|" wp-config.php
+      - sed -i -e  "s|DB_HOST_PLACEHOLDER|$DB_HOST|" wp-config.php
       - docker build -t $APACHE_IMAGE_REPO_NAME:$IMAGE_TAG .
       - docker tag $APACHE_IMAGE_REPO_NAME:latest $APACHE_REPO_URI:$IMAGE_TAG
       - echo APACHE Docker image build finished.
