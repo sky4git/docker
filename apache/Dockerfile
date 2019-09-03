@@ -11,6 +11,8 @@ RUN echo "Include /usr/local/apache2/conf/demo.apache.conf" \
     >> /usr/local/apache2/conf/httpd.conf
 
 COPY index.php /usr/local/apache2/htdocs/  
+COPY mysql-test.php /usr/local/apache2/htdocs/  
+
 
 WORKDIR /usr/local/apache2/htdocs  
 #COPY index.html . 
@@ -28,7 +30,6 @@ COPY wp-config.php /usr/local/apache2/htdocs/wp-config.php
 #   && unzip amazon-s3-and-cloudfront.zip -d /usr/local/apache2/htdocs/wp-content/plugins \
 # 	&& rm amazon-s3-and-cloudfront.zip
 
-#RUN echo '<?php $con = mysqli_connect("localhost","root","mydb","my_db"); if (mysqli_connect_errno()){ echo "Failed to connect to MySQL: " . mysqli_connect_error(); } ?>' > index.php
 #CMD sudo chkconfig httpd on
 #CMD sudo service httpd start
 HEALTHCHECK --interval=5s --timeout=3s \

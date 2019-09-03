@@ -28,12 +28,16 @@ phases:
       - echo 'Replace PLACEHOLDER in wp-config.php'
       - echo 'Database name is - $DB_NAME'
       - sed -i -e  "s|DB_NAME_PLACEHOLDER|$DB_NAME|" wp-config.php
+      - sed -i -e  "s|DB_NAME_PLACEHOLDER|$DB_NAME|" mysql-test.php
       - echo 'Database user is - $DB_USER'
       - sed -i -e  "s|DB_USER_PLACEHOLDER|$DB_USER|" wp-config.php
+      - sed -i -e  "s|DB_USER_PLACEHOLDER|$DB_USER|" mysql-test.php
       - echo 'Database password is - $DB_PASSWORD'
       - sed -i -e  "s|DB_PASSWORD_PLACEHOLDER|$DB_PASSWORD|" wp-config.php
+      - sed -i -e  "s|DB_PASSWORD_PLACEHOLDER|$DB_PASSWORD|" mysql-test.php
       - echo 'Database Host is - $DB_HOST'
       - sed -i -e  "s|DB_HOST_PLACEHOLDER|$DB_HOST|" wp-config.php
+      - sed -i -e  "s|DB_HOST_PLACEHOLDER|$DB_HOST|" mysql-test.php
       - docker build -t $APACHE_IMAGE_REPO_NAME:$IMAGE_TAG .
       - docker tag $APACHE_IMAGE_REPO_NAME:latest $APACHE_REPO_URI:$IMAGE_TAG
       - echo APACHE Docker image build finished.
