@@ -10,3 +10,9 @@ This repository is for Docker playground and demos. Self learning material.
 Create a local ecs-params.yml file to configure local values for your AWS account values.
 Check ecs-params.sample.yml file and use it as an template.
 
+## SSM parameters 
+You will need to create following SSM paramter to refer that into the buildspec:
+1. account_id: your account Id
+2. ECSStackDBName: database name for wordpress
+3. MasterUsername: for database username
+4. MasterUserPassword: for database user password

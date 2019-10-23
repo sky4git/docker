@@ -5,7 +5,10 @@ env:
     APACHE_IMAGE_REPO_NAME: "apache"
     PHP_IMAGE_REPO_NAME: "php"
     AWS_DEFAULT_REGION: "ap-southeast-2"
-
+    AWS_ACCOUNT_ID: "account_id"
+    DB_NAME: "ECSStackDBName"
+    DB_USER: "MasterUsername"
+    DB_PASSWORD: "MasterUserPassword"
 phases:
   install:
     runtime-versions:
