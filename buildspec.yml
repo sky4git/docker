@@ -5,10 +5,12 @@ env:
     APACHE_IMAGE_REPO_NAME: "apache"
     PHP_IMAGE_REPO_NAME: "php"
     AWS_DEFAULT_REGION: "ap-southeast-2"
+  parameter-store:
     AWS_ACCOUNT_ID: "account_id"
     DB_NAME: "ECSStackDBName"
-    DB_USER: "MasterUsername"
-    DB_PASSWORD: "MasterUserPassword"
+    DB_USER: "ECSStackDBUSER"
+    DB_PASSWORD: "ECSStackDBUSERPasswd"
+
 phases:
   install:
     runtime-versions:
@@ -62,9 +64,8 @@ phases:
       - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$PHP_IMAGE_REPO_NAME:latest 
       - printf '[{"name":"php","imageUri":"%s"}]' $PHP_REPO_URI:$IMAGE_TAG > phpdefinitions.json
       - cat phpdefinitions.json
+
 artifacts:
     files: 
       - apachedefinitions.json
       - phpdefinitions.json
-
-
