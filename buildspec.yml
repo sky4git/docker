@@ -10,7 +10,7 @@ env:
     DB_NAME: "ECSStackDBName"
     DB_USER: "ECSStackDBUSER"
     DB_PASSWORD: "ECSStackDBUSERPasswd"
-
+    DB_HOST: "ECSStackDBEndpoint"
 phases:
   install:
     runtime-versions:
