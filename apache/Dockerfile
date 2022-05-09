@@ -1,6 +1,6 @@
 FROM httpd:2.4-alpine
 
-ENV PLUGIN_S3_CLOUDFRONT_VERSION="2.2.1"
+#ENV PLUGIN_S3_CLOUDFRONT_VERSION="2.2.1"
 
 RUN apk update; \
     apk upgrade; \
@@ -11,13 +11,13 @@ COPY demo.apache.conf /usr/local/apache2/conf/
 RUN echo "Include /usr/local/apache2/conf/demo.apache.conf" \
     >> /usr/local/apache2/conf/httpd.conf
     
-COPY index.php /usr/local/apache2/htdocs/  
-COPY mysql-test.php /usr/local/apache2/htdocs/  
+#COPY index.php /usr/local/apache2/htdocs/  
+#COPY mysql-test.php /usr/local/apache2/htdocs/  
 
 
 WORKDIR /usr/local/apache2/htdocs  
 #COPY index.html . 
-RUN echo "Hello world!" > hello.html
+#RUN echo "Hello world!" > hello.html
 RUN git clone https://github.com/WordPress/WordPress.git; \ 
     mv WordPress/* .; \
     rm -rf WordPress;
@@ -33,8 +33,8 @@ COPY wp-config.php /usr/local/apache2/htdocs/wp-config.php
 
 #CMD sudo chkconfig httpd on
 #CMD sudo service httpd start
-HEALTHCHECK --interval=5s --timeout=3s \
-  CMD curl -f http://localhost/hello.html || exit 1
+#HEALTHCHECK --interval=30s --timeout=3s \
+#  CMD curl -f http://localhost/hello.html || exit 1
 
 VOLUME /usr/local/apache2/htdocs
 
